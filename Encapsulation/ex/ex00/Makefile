@@ -6,7 +6,8 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 # Fichiers source et objets
-SRC = main.cpp Bank.cpp Account.cpp
+SRC = 	main.cpp  \
+		Bank.cpp
 OBJ = $(SRC:.cpp=.o)
 
 # Règle par défaut
