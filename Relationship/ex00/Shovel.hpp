@@ -3,17 +3,28 @@
 
 #include <iostream>
 #include "Tool.hpp"
+#include "Worker.hpp"
 
 using namespace std;
 
 struct Shovel : public Tool
 {
-    
 
-    Shovel() : numberOfUses(10){};
+    Shovel() {
+        name = "shovel";
+        owner = NULL;
+        cout << YELLOW << "Shovel created" << END << endl;
+    };
+    
+    ~Shovel() {
+        cout << YELLOW << "Shovel deleted" << END << endl;
+    };
+
     virtual void use() {
-        cout << "its a Shovel" << endl;
-    }
+        cout << YELLOW << "its a Shovel" << END << endl;
+    };
+
+    
 };
 
 

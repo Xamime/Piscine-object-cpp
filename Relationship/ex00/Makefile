@@ -15,7 +15,7 @@ NAME        := my_program
 
 # Compilateur et flags
 CXX         := c++
-CXXFLAGS    := -Wall -Wextra -Werror -std=c++98
+CXXFLAGS    := -g -Wall -Wextra -Werror -std=c++98
 
 # Fichiers sources et objets (dans le dossier courant)
 SRCS        := $(wildcard *.cpp)
