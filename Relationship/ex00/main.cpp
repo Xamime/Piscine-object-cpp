@@ -7,7 +7,7 @@ using namespace std;
 
 int main() {
 
-    cout << "------CONSTRUCTION------" << endl;
+    cout << "\n------CONSTRUCTION------\n" << endl;
 
     Tool *hammer = new Hammer();
     Tool *shovel = new Shovel();
@@ -27,10 +27,14 @@ int main() {
 
     cout << "\n------ACTIONS-WORKER-----\n" << endl;
 
+    max.registerToWorkshop(&forge);
+    max.registerToWorkshop(&forge);
     hammer->use();
     shovel->use();
     max.useTool();
     shovel->giveTool(&max);
+    max.useTool();
+    max.useTool();
     max.useTool();
     hammer->giveTool(&max);
     max.useTool();

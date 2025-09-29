@@ -4,6 +4,9 @@
 #include "Position.hpp"
 #include "Tool.hpp"
 #include "Statistic.hpp"
+#include <vector>
+#include "Workshop.hpp"
+#include <algorithm>
 #define RED "\033[0;31m"
 #define END "\033[0m"
 
@@ -16,6 +19,8 @@ class Worker
     Position coordonnee;
     Statistic stat;
     Tool *tool;
+    vector<Workshop *> workshops;
+
     void addTool(Tool *newtool) {
         if (!newtool)
             return;
@@ -34,11 +39,24 @@ class Worker
 
     ~Worker() {
         cout << RED << _name << " deleted" << END << endl;
+        workshops.clear();
     };
     
     std::string getName() const {
         return _name;
     };
+
+    void registerToWorkshop(Workshop *w) {
+        if (!w)
+            return;
+        vector<Workshop *>::iterator it = find(workshops.begin(), workshops.end(), w);
+        if (it != workshops.end()) {
+            cout << RED << _name << " is already in " << (*it)->getName() << END << endl;
+            return;
+        }
+        workshops.push_back(w);
+        w->addWorker(this);
+    }
 
     void useTool() {
         if (tool)

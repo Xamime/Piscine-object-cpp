@@ -13,6 +13,7 @@ struct Hammer : public Tool
 {
     Hammer() {
         name = "hammer";
+        numberOfUses = 2;
         owner = NULL;
         cout << GREEN << "Hammer created" << END << endl;
     };
@@ -22,6 +23,12 @@ struct Hammer : public Tool
 
     virtual void use() {
         cout << GREEN << "its a Hammer" << END << endl;
+        if (numberOfUses == 0) {
+            cout << GREEN << "Hammer is broken" << END << endl;
+            return;
+        }
+        numberOfUses--;
+
     };
 };
 #endif // !HAMMER

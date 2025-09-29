@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 # Nom du programme
-NAME        := my_program
+NAME        := relation
 
 # Compilateur et flags
 CXX         := c++

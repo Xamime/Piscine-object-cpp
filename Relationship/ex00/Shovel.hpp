@@ -12,6 +12,7 @@ struct Shovel : public Tool
 
     Shovel() {
         name = "shovel";
+        numberOfUses = 3;
         owner = NULL;
         cout << YELLOW << "Shovel created" << END << endl;
     };
@@ -22,6 +23,12 @@ struct Shovel : public Tool
 
     virtual void use() {
         cout << YELLOW << "its a Shovel" << END << endl;
+        if (numberOfUses == 0) {
+            cout << YELLOW << "Shovel is broken" << END << endl;
+            return;
+        }
+        numberOfUses--;
+
     };
 
     
