@@ -14,14 +14,21 @@ int main() {
     Worker max("max");
     Worker toto("toto");
     Workshop forge("forge");
+    Workshop wood("wood");
 
     cout << "\n------ACTIONS-WORKSHOP-----\n" << endl;
 
+    max.work();
     forge.addWorker(&max);
+    max.work();
     forge.addWorker(&max);
     forge.addWorker(&toto);
+    forge.executeWorkDay();
+    wood.addWorker(&toto);
     forge.releaseWorker(&toto);
+    forge.releaseWorker(&max);
     forge.releaseWorker(&toto);
+    // forge.addWorker(&max);
     forge.releaseWorker(NULL);
     forge.addWorker(NULL);
 
@@ -29,6 +36,7 @@ int main() {
 
     max.registerToWorkshop(&forge);
     max.registerToWorkshop(&forge);
+    toto.registerToWorkshop(&forge);
     hammer->use();
     shovel->use();
     max.useTool();
@@ -40,7 +48,6 @@ int main() {
     max.useTool();
     hammer->giveTool(&toto);
     max.useTool();
-
     cout << "\n------DESTRUCTION------\n" << endl;
 
     delete hammer;

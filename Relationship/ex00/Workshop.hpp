@@ -16,8 +16,9 @@ class Workshop
         Workshop(string name);
         ~Workshop();
         void addWorker(Worker *newworker);
-        string getName() const;
+        const string getName() const;
         void releaseWorker(Worker *worker);
+        void executeWorkDay();
 };
 
 #endif // !WORKSHOP_HPP

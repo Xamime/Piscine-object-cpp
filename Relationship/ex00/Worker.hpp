@@ -46,14 +46,29 @@ class Worker
         return _name;
     };
 
+    void work() {
+        if (!workshops.empty()) 
+            cout << RED << _name << " execute work" << END << endl;
+        else 
+            cout << RED << _name << " doesn't have work" << END << endl;
+    }
+
+    void removeWorkshop(Workshop *w) {
+        for (size_t i = 0; i < workshops.size(); i++) {
+            if (workshops[i] == w) {
+                workshops.erase(workshops.begin() + i);
+                cout << RED << _name << " is removed from " << w->getName() << END << endl;
+                return;
+            }
+        }
+    }
+
     void registerToWorkshop(Workshop *w) {
         if (!w)
             return;
         vector<Workshop *>::iterator it = find(workshops.begin(), workshops.end(), w);
-        if (it != workshops.end()) {
-            cout << RED << _name << " is already in " << (*it)->getName() << END << endl;
+        if (it != workshops.end())
             return;
-        }
         workshops.push_back(w);
         w->addWorker(this);
     }

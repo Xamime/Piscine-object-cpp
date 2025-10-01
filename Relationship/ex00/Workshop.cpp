@@ -14,15 +14,15 @@ void Workshop::addWorker(Worker *newworker) {
     if (!newworker)
         return;
     if (find(workers.begin(), workers.end(), newworker) != workers.end()) {
-        cout << name << " already has this worker : " << newworker->getName() << endl;
+        // cout << name << " already has this worker : " << newworker->getName() << endl;
         return;
     }
-    workers.push_back(newworker);
-    // newworker->registerToWorkshop(this);
     cout << name << " now has a new worker : " << newworker->getName() << endl;
+    workers.push_back(newworker);
+    newworker->registerToWorkshop(this);
 };
 
-string Workshop::getName() const {
+const string Workshop::getName() const {
     return name;
 };
 
@@ -33,8 +33,15 @@ void Workshop::releaseWorker(Worker *worker) {
         if (workers[i] == worker) {
             workers.erase(workers.begin() + i);
             cout << name << " has released a worker : " << worker->getName() << endl;
+            worker->removeWorkshop(this);
             return;
         }
     }
     cout << name << " has no such worker named : " << worker->getName() << endl;
+
 };
+void Workshop::executeWorkDay() {
+    for (size_t i = 0; i < workers.size(); i++) {
+        workers[i]->work();
+    }
+}
