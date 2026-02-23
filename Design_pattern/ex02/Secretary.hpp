@@ -1,13 +1,14 @@
 #pragma once
 #include "Staff.hpp"
-#include "Form.hpp"
 #include "FormType.hpp"
+
+class Form;
 
 class Secretary : public Staff
 {
 private:
 
 public:
-	Form* createForm(FormType p_formType);
-	void archiveForm();
+	Secretary(std::string name) : Staff(name) {}
+	Form* createForm(FormType p_formType); 
 };

@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include "Person.hpp"
+#include "SignFormCommand.hpp"
 
 class Form;
 
@@ -10,5 +11,4 @@ private:
 
 public:
 	Staff(std::string name) : Person(name) {}
-    void sign(Form* p_form);
 };

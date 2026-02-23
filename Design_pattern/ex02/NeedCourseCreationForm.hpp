@@ -6,7 +6,14 @@
 class NeedCourseCreationForm : public Form
 {
 private:
-
+	std::string _courseTitle;
 public:
-	void execute();
+	NeedCourseCreationForm() : Form(FormType::NeedCourseCreation) {}
+	void execute() {
+		std::cout << "Creating new course: " << _courseTitle << std::endl;
+	}
+	void fill(std::string courseTitle){
+		_courseTitle = courseTitle;
+		_isFilled = true;
+	}
 };

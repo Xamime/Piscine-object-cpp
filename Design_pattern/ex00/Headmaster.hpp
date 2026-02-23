@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include "Staff.hpp"
+#include <vector>
 
 class Form;
 

@@ -7,9 +7,7 @@ class Person
 {
 private:
 	std::string _name;
-	Room* _currentRoom;
 public:
 	Person(std::string p_name) : _name(p_name){}
 	std::string getName() {return _name;}
-	Room* room() {return (_currentRoom);}
 };

@@ -5,7 +5,14 @@
 class NeedMoreClassRoomForm : public Form
 {
 private:
-
+	int _nbStudents;
 public:
-	void execute();
+	NeedMoreClassRoomForm() : Form(FormType::NeedMoreClassRoom) {}
+	void execute() {
+		std::cout << "Need a bigger classroom for " << _nbStudents << " students\n";
+	}
+	void fill(int nbStudents) {
+		_nbStudents = nbStudents;
+		_isFilled = true;
+	}
 };

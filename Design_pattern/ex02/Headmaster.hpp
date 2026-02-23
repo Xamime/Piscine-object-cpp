@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include "Staff.hpp"
+#include <vector>
 
 class Form;
 
@@ -10,5 +11,11 @@ private:
 	std::vector<Form*> _formToValidate;
 	
 public:
-	void receiveForm(Form* p_form);
+	Headmaster(std::string name) : Staff(name) {}
+	void receiveForm(Form* p_form) {
+		if (p_form) {
+			_formToValidate.push_back(p_form);
+		}
+	}
+	void validateForms(); 
 };
